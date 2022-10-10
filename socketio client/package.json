@@ -1,0 +1,17 @@
+{
+    "name": "nodejstraining",
+    "version": "1.0.0",
+    "description": "Browser => Engine + Sandbox",
+    "main": "client.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node client.js"
+    },
+    "dependencies": {
+        "socket.io-client": "4.5.2"
+    },
+    "author": "",
+    "license": "ISC",
+    "type": "module"
+  }
+  

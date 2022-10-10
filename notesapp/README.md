@@ -20,10 +20,13 @@
 ## Authorization
 
 ## SocketIO -> Real time interaction
+TCP =>
 
 ## Templates or UI/UX
 
 ## Refactoring => Best Practices
+
+## Typescript and Build packages
 
 ## Convert it into Docker
 

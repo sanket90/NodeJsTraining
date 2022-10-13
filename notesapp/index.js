@@ -29,9 +29,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use("/static", express.static(join(__dirname, "public")))
 
+app.set("view engine", "pug");
+app.set("views", "./src/views")
+
 // Middlewares
 
 // Route handlers
+// app.use("/", (req, res) => {
+//     res.render("index")
+// });
+
 app.use("/public", publicRouter);
 app.use("/private", authenticate, privateRouter);
 

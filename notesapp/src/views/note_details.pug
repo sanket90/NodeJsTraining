@@ -1,0 +1,18 @@
+extends base.pug
+
+block scripts
+  script
+    
+  script(src="/static/js/note_detail.js")
+
+block title
+  Note Details 
+
+block content
+  div.mb-3
+    label(for="title", class="form-label") Title
+    input(type="text", class="form-control", id="title", placeholder="Please enter title")
+  
+  div.mb-3
+    label(for="content", class="form-label") Content
+    textarea(class="form-control", id="content", rows=20)

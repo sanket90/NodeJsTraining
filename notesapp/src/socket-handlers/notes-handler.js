@@ -10,6 +10,18 @@ export class NotesHandler {
         this.io = io;
         this.socket = socket;
         socket.on("notes:save", this.save)
+        this.list();
+        socket.on("notes:get:title", this.getByTitle)
+    }
+
+    list = async () => {
+        const notelist = await this.noteService.getAll();
+        this.socket.emit("notes:list:all", notelist)
+    }
+
+    getByTitle = async (title) => {
+        const note = await this.noteService.getByTitle(title);
+        this.socket.emit("notes:get:title:success", note.title, note.content)
     }
 
     save = async (title, content) => {

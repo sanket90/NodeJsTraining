@@ -55,6 +55,6 @@ io.on("connection", appHandler(io))
 
 
 
-httpServer.listen(3400, () => {
-    console.log("Notes App Express server started successfully.!");
+httpServer.listen(process.env.HTTP_SERVER_PORT, () => {
+    console.log(`Notes App Express server started successfully.! ${process.env.PROFILE} ${process.env.HTTP_SERVER_PORT}`);
 });

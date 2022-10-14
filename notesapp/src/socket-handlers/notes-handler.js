@@ -24,10 +24,10 @@ export class NotesHandler {
         this.socket.emit("notes:get:title:success", note.title, note.content)
     }
 
-    save = async (title, content) => {
+    save = async (title, content, isNew=true) => {
         try {
             
-            await this.noteService.save(title, content)
+            await this.noteService.save(title, content, isNew)
             this.socket.emit("notes:save:success", "Notes saved successfully")
         } catch (error) {
             console.log(error.message);

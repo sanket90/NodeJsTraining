@@ -10,8 +10,13 @@ html(lang="en")
 
   body
     nav.navbar.bg-light
-        div.container-fluid
-            span.navbar-brand.mb-0.h1 Navbar
+        div.container
+            span.navbar-brand.mb-0.h1 SimpleNote
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link(href="/public/notes") Notes
+            .d-flex
+              a.btn.btn-primary(href="/public/notes/new") Create New Note
 
     div.container
       .row 

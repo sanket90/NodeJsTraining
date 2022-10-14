@@ -12,13 +12,16 @@ export class NotesService {
     }
     
 
-    save(title, content) {
+    async save(title, content, isNew=true) {
         try {
             const newNote = new Notes(title, content);
 
             newNote.isValid();
 
-            return this.db.insertNote(newNote);
+            if (isNew)
+                return await this.db.insertNote(newNote);
+            else
+                return await this.db.updateNote(newNote)
         } catch (error) {
             console.log(error.stack);
             throw error;
@@ -46,7 +49,12 @@ export class NotesService {
 
 
     getByTitle(title) {
-        return this.db.notes.get(title);
+        try {
+            return this.db.selectNoteByTitle(title)
+        } catch (error) {
+            console.log(error.stack);
+            throw error;
+        }
     }
 
 

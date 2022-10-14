@@ -15,7 +15,7 @@ export class NotesDB {
     open() {
         return new Promise((resolve, reject) => {
             try {
-                const db = new sqlite3.Database('./data/notes.db', (err) => {
+                const db = new sqlite3.Database(`${process.env.DB_FILE_PATH}`, (err) => {
                     if (err) {
                         reject(err.message);
                     }
@@ -124,6 +124,16 @@ export class NotesDB {
         }
     }
 
+    async updateNote(existingNote) {
+        try {
+            const db = await this.open();
+            await this.run(db, `UPDATE notes SET content=? WHERE title=?`, [existingNote.content, existingNote.title])
+            db.close();
+        } catch (error) {
+            throw new DatabaseError(error);
+        }
+    }
+
     async selectAllNotes() {
         try {
             const db = await this.open();
@@ -137,6 +147,23 @@ export class NotesDB {
             })
 
             return notesList;
+        } catch (error) {
+            throw new DatabaseError(error);
+        }
+    }
+
+    async selectNoteByTitle(title) {
+        try {
+            const db = await this.open();
+            
+            const rows = await this.select(db,'SELECT * FROM notes WHERE title = ?', [title]);
+            
+            db.close();
+
+            const rowItem = rows[0];
+
+            return new Notes(rowItem.title, rowItem.content)
+
         } catch (error) {
             throw new DatabaseError(error);
         }

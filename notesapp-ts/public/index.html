@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 3rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        #input {
+            border: none;
+            padding: 0 1rem;
+            flex-grow: 1;
+            border-radius: 2rem;
+            margin: 0.25rem;
+        }
+
+        #input:focus {
+            outline: none;
+        }
+        #success {
+            color: green;
+        }
+        #failure {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 id="success"></h3>
+    <h3 id="failure"></h3>
+    <hr/>
+    <form id="form" action="">
+        <input id="title" autocomplete="off" />
+        <br/>
+        <textarea id="content" on></textarea>
+    </form>
+</body>
+
+<script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
+<script>
+    const socket = io();
+
+    const title = document.getElementById("title");
+    const content = document.getElementById("content");
+
+    const success = document.getElementById("success");
+    const failure = document.getElementById("failure");
+
+    socket.on("notes:save:success", (msg) => {
+        success.innerHTML = msg;
+    })
+    socket.on("notes:save:failure", (msg) => {
+        failure.innerHTML = msg;
+    })
+
+    setInterval(() => {
+        // save note
+        socket.emit("notes:save", title.value, content.value);
+
+    }, 10000); // 10s
+</script>
+
+</html>

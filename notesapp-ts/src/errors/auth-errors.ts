@@ -1,4 +1,4 @@
-import { BusinessError } from './business-errors'
+import { BusinessError } from './business-errors.js'
 
 export class AuthenticationError extends BusinessError {
     constructor(message = "Authentication failed. Invalid user or password") {

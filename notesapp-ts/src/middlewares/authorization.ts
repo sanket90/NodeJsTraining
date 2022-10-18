@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { AuthorizationError } from '../errors/auth-errors'
+import { AuthorizationError } from '../errors/auth-errors.js'
 
 
 export const authorization = (validRoles : string[] = []) => {

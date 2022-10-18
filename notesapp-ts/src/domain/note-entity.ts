@@ -1,4 +1,4 @@
-import { BusinessError } from "../errors/business-errors";
+import { BusinessError } from "../errors/business-errors.js";
 
 export class Notes {
     title: string;

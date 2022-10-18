@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { PasswordHashingFailure } from '../errors/crypto-errors';
+import { PasswordHashingFailure } from '../errors/crypto-errors.js';
 
 
 const HASH_ROUNDS = 10;

@@ -1,8 +1,8 @@
 import sqlite3 from 'sqlite3';
 
-import { Notes } from './note-entity';
-import { User } from './user-entity';
-import { DatabaseError } from '../errors/db-errors'
+import { Notes } from './note-entity.js';
+import { User } from './user-entity.js';
+import { DatabaseError } from '../errors/db-errors.js'
 
 export class NotesDB {
 

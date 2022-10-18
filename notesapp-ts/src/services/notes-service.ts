@@ -1,7 +1,7 @@
-import { Notes } from '../domain/note-entity'
+import { Notes } from '../domain/note-entity.js'
 
-import { NotesDB } from '../domain/db'
-import { BusinessError, EmptyRecords } from '../errors/business-errors';
+import { NotesDB } from '../domain/db.js'
+import { BusinessError, EmptyRecords } from '../errors/business-errors.js';
 
 export class NotesService {
 

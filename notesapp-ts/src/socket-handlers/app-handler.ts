@@ -1,5 +1,5 @@
 import { Socket, Server } from "socket.io";
-import { NotesHandler } from "./notes-handler"
+import { NotesHandler } from "./notes-handler.js"
 
 export const appHandler = (io: Server) => {
 

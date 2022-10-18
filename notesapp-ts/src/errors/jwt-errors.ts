@@ -1,4 +1,4 @@
-import { BusinessError } from './business-errors'
+import { BusinessError } from './business-errors.js'
 
 export class JWTError extends BusinessError {
     statusCode;

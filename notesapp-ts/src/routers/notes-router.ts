@@ -1,8 +1,8 @@
 import express from 'express';
-import { BusinessError } from '../errors/business-errors';
-import { authorization } from '../middlewares/authorization';
+import { BusinessError } from '../errors/business-errors.js';
+import { authorization } from '../middlewares/authorization.js';
 
-import { NotesService } from '../services/notes-service';
+import { NotesService } from '../services/notes-service.js';
 
 export const router = express.Router();
 const noteService = new NotesService();

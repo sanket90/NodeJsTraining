@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { TokenSigningFailure, TokenVerificationFailure } from '../errors/jwt-errors';
+import { TokenSigningFailure, TokenVerificationFailure } from '../errors/jwt-errors.js';
 
 const JWT_SECRET_SALT = "VERY_SECRET_SALT_PLEASE_DONT_PUSH_IN_REPO";
 

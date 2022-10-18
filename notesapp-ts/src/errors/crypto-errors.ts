@@ -1,4 +1,4 @@
-import { BusinessError } from './business-errors'
+import { BusinessError } from './business-errors.js'
 
 export class CryptoError extends BusinessError {
     statusCode;

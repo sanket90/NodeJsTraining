@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -r dotenv/config ./dist/index.js dotenv_config_path=./env/dev/.env\"",
-    "qa": "concurrently \"npx tsc --watch\" \"nodemon -r dotenv/config ./dist/index.js dotenv_config_path=./env/qa/.env\""
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -r dotenv/config ./dist/index.js dotenv_config_path=./env/dev/.env --experimental-import-meta-resolve\"",
+    "qa": "concurrently \"npx tsc --watch\" \"nodemon -r dotenv/config ./dist/index.js dotenv_config_path=./env/qa/.env --experimental-import-meta-resolve\""
   },
   "keywords": [],
   "author": "",

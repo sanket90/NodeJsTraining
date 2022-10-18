@@ -1,8 +1,8 @@
-import { UsersService } from "../services/users-service";
+import { UsersService } from "../services/users-service.js";
 
-import { AuthenticationError } from '../errors/auth-errors'
+import { AuthenticationError } from '../errors/auth-errors.js'
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { User } from "../domain/user-entity";
+import { User } from "../domain/user-entity.js";
 
 const userService = new UsersService();
 

@@ -1,5 +1,5 @@
 import { Server, Socket } from 'socket.io';
-import { NotesService } from '../services/notes-service';
+import { NotesService } from '../services/notes-service.js';
 
 export class NotesHandler {
 

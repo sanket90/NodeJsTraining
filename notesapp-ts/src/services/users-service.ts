@@ -1,10 +1,10 @@
-import { User } from '../domain/user-entity';
+import { User } from '../domain/user-entity.js';
 
-import { NotesDB } from '../domain/db'
-import { AuthenticationError } from '../errors/auth-errors';
+import { NotesDB } from '../domain/db.js'
+import { AuthenticationError } from '../errors/auth-errors.js';
 
-import { hashPassword, verifyPassowrd } from '../utils/crypto'
-import { createToken, verifyToken } from '../utils/jwt'
+import { hashPassword, verifyPassowrd } from '../utils/crypto.js'
+import { createToken, verifyToken } from '../utils/jwt.js'
 
 
 export class UsersService {

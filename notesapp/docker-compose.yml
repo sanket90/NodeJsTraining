@@ -1,0 +1,36 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: notes-app-network
+
+services:
+  notesapp-core:
+    image: sanketneebal/notes-app-core
+    links: 
+      - "notesdb:database"
+  notesapp-auth:
+    image: sanketneebal/notes-app-auth
+    links: 
+      - "notesdb:database"
+  notesapp-api:
+    image: sanketneebal/notes-app-api
+    links: 
+      - "notesdb:database"
+  notesapp-web:
+    image: sanketneebal/notes-app-auth
+    ports:
+      - "3502:3402"
+    links: 
+      - "notesdb:database"
+  notesdb:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: nodejs
+    volumes: 
+      - ./data:/data/db
+
+

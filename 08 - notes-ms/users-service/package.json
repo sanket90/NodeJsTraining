@@ -1,0 +1,38 @@
+{
+  "name": "notesapp-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -r dotenv/config ./dist/index.js dotenv_config_path=./env/dev/.env --experimental-import-meta-resolve\"",
+    "qa": "concurrently \"npx tsc --watch\" \"nodemon -r dotenv/config ./dist/index.js dotenv_config_path=./env/qa/.env --experimental-import-meta-resolve\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "jsonwebtoken": "8.5.1",
+    "pug": "3.0.2",
+    "socket.io": "4.5.2",
+    "sqlite3": "5.1.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "5.0.0",
+    "@types/dotenv-defaults": "2.0.1",
+    "@types/express": "^4.17.14",
+    "@types/jsonwebtoken": "8.5.9",
+    "@types/node": "^18.11.0",
+    "@types/pug": "2.0.6",
+    "@types/sqlite3": "3.1.8",
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.8.4"
+  }
+}

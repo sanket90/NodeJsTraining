@@ -1,6 +1,6 @@
 import { Notes } from '../domain/note-entity.js'
 
-import { NotesDB } from '../domain/db.js'
+import { NotesMongoDB } from '../domain/db-mongodb.js'
 import { BusinessError, EmptyRecords } from '../errors/business-errors.js';
 
 export class NotesService {
@@ -8,7 +8,7 @@ export class NotesService {
     db;
 
     constructor() {
-        this.db = new NotesDB();
+        this.db = new NotesMongoDB();
     }
     
 

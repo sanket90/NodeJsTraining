@@ -1,14 +1,13 @@
 import { MongoClient } from 'mongodb'
-import { DatabaseError } from '../errors/db-errors.js';
-import { Notes } from './note-entity.js';
+import { DatabaseError, Notes } from 'notesapp-core-lib';
 
 
 export class NotesMongoDB {
 
-    open() {
+    open(): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
-                const mongoClient = new MongoClient(process.env.DB_URL)
+                const mongoClient = new MongoClient(process.env.DB_URL as string)
                 const database = mongoClient.db("notesapp");
                 const notes_collection = database.collection("notes");
 
@@ -20,7 +19,7 @@ export class NotesMongoDB {
         })
     }
 
-    async insertNote(newNote) {
+    async insertNote(newNote: Notes) {
         try {
             const db = await this.open();
     
@@ -32,7 +31,7 @@ export class NotesMongoDB {
         }
     }
 
-    async updateNote(existingNote) {
+    async updateNote(existingNote: Notes) {
         try {
             const db = await this.open();
             
@@ -63,7 +62,7 @@ export class NotesMongoDB {
 
             await db.mongoClient.close()
 
-            const notesList = notes_docs.map((rowItem) => {
+            const notesList = notes_docs.map((rowItem: any) => {
                 return new Notes(rowItem.title, rowItem.content)
             })
 
@@ -73,7 +72,7 @@ export class NotesMongoDB {
         }
     }
 
-    async selectNoteByTitle(noteTitle) {
+    async selectNoteByTitle(noteTitle: string) {
         try {
             const db = await this.open();
     

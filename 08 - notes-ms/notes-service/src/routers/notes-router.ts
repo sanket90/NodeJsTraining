@@ -1,6 +1,5 @@
 import express from 'express';
-import { BusinessError } from '../errors/business-errors.js';
-import { authorization } from '../middlewares/authorization.js';
+import { BusinessError, authorization } from 'notesapp-core-lib';
 
 import { NotesService } from '../services/notes-service.js';
 

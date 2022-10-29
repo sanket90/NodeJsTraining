@@ -1,7 +1,6 @@
-import { Notes } from '../domain/note-entity.js'
+import { Notes } from 'notesapp-core-lib'
 
 import { NotesMongoDB } from '../domain/db-mongodb.js'
-import { BusinessError, EmptyRecords } from '../errors/business-errors.js';
 
 export class NotesService {
 

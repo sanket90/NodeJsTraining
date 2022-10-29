@@ -14,7 +14,7 @@ import { router as privateRouter } from './routers/private-router.js';
 
 import { appHandler } from './socket-handlers/app-handler.js';
 
-// import { authenticate } from './middlewares/authentication.js';
+import {  authenticate, hashPwd, HASH_ROUNDS } from 'notesapp-core-lib';
 
 // App instance
 const app = express();
@@ -32,7 +32,7 @@ app.use(express.json());
 //     res.render("index")
 // });
 
-// app.use("/private", authenticate, privateRouter);
+// app.use("/private", authenticate(userService.tokenAuth), privateRouter);
 app.use("/private", privateRouter);
 
 

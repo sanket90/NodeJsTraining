@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import { PasswordHashingFailure } from '../errors/crypto-errors.js';
 
 
-const HASH_ROUNDS = 10;
+export const HASH_ROUNDS = 10;
 
 
 export const hashPassword = async (plainTextPassword: string) => {
